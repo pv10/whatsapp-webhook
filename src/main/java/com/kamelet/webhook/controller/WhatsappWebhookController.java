@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,8 +36,9 @@ public class WhatsappWebhookController {
 		
 	}
 	
+	@PostMapping("/webhook")
 	public ResponseEntity<String> receiveMessage(@RequestBody Map<String, Object> payload){
-		System.out.println("Received payload");
+		System.out.println("Received payload "+payload);
 		return ResponseEntity.ok("EVENT_RECEIVED");
 	}
 	
